@@ -25,8 +25,19 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="/" class="nav-link">Eventos</a></li>
                         <li class="nav-item"><a href="/events/create" class="nav-link">Criar Eventos</a></li>
-                        <li class="nav-item"><a href="/" class="nav-link">Entrar</a></li>
-                        <li class="nav-item"><a href="/" class="nav-link">Cadastrar</a></li>
+                        @auth                       
+                            <li class="nav-item"><a href="/dashboard" class="nav-link">Meus Eventos</a></li>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <a href="/logout" class="nav-link" onclick="event.preventDefault();
+                                    this.closest('form').submit();
+                                " >Sair</a>
+                            </form>
+                        @endauth
+                        @guest
+                            <li class="nav-item"><a href="/login" class="nav-link">Entrar</a></li>
+                            <li class="nav-item"><a href="/register" class="nav-link">Cadastrar</a></li>
+                        @endguest
                     </ul>
                 </div>
             </nav>
@@ -51,3 +62,4 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
+
