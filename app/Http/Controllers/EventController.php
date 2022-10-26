@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Event;
 use App\Models\User;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
+=======
+>>>>>>> 7713187ad4487c3148cc5c1045f6913cbf378367
 
 class EventController extends Controller
 {
@@ -65,6 +68,7 @@ class EventController extends Controller
         $event->save();
 
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
+<<<<<<< HEAD
 
     }
 
@@ -170,3 +174,27 @@ class EventController extends Controller
     }
 
 }
+=======
+    }
+
+    public function show($id){
+
+        $event = Event::findorFail($id);
+
+        $eventOwner = User::where('id', $event->user_id)->first()->toArray();
+
+        return view('events.show', ['event' => $event,'eventOwner' => $eventOwner]);
+
+    }
+
+
+    public function dashboard(){
+        $user = auth()->user();
+
+        $events = $user->events;
+
+        return view('events.dashboard', ['events' => $events]);
+    }
+
+}
+>>>>>>> 7713187ad4487c3148cc5c1045f6913cbf378367

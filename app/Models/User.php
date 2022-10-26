@@ -21,7 +21,11 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
+<<<<<<< HEAD
      * @var array
+=======
+     * @var string[]
+>>>>>>> 7713187ad4487c3148cc5c1045f6913cbf378367
      */
     protected $fillable = [
         'name',
@@ -59,6 +63,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+<<<<<<< HEAD
     public function events() {
         return $this->hasMany('App\Models\Event');
     }
@@ -68,3 +73,9 @@ class User extends Authenticatable
     }
 
 }
+=======
+    public function events(){
+        return $this->hasMany('App\Models\Event');
+    }
+}
+>>>>>>> 7713187ad4487c3148cc5c1045f6913cbf378367

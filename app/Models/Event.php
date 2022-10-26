@@ -16,6 +16,7 @@ class Event extends Model
     protected $guarded = [];
     protected $dates = ['date'];
 
+<<<<<<< HEAD
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
@@ -23,4 +24,11 @@ class Event extends Model
     public function users(){
         return $this->belongsToMany('App\Models\User');
     }
+=======
+    protected $dates = ['dates'];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+>>>>>>> 7713187ad4487c3148cc5c1045f6913cbf378367
 }
